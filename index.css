@@ -1,15 +1,18 @@
 .car{
-   background-image: url('./img/tablero.png');
+   background-image: url('./img/carSanti2.png');
    background-repeat: no-repeat;
    width: 100%;
-   height: 700px;
+   height: 800px;
    margin: auto;
+   position: relative;
+   top:25px;
+   left:110px
 }
 
 #interruptor{
     position: absolute;
-    top:255px;
-    left:510px;
+    top:190px;
+    left:220px;
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -19,7 +22,7 @@
     background-color: rgba(50, 252, 0, 0.904);
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px rgba(204, 32, 32, 0.623);
+    box-shadow: 0 9px rgb(255, 3, 3);
 }
       
       
@@ -31,43 +34,31 @@
 
 #clutch{
     position: absolute;
-    top:450px;
-    left:230px;
+    top:280px;
+    left:25px;
    
 }
 
 #freno{
     position:absolute;
-    top: 450px;
-    left:330px;
+    top: 280px;
+    left:120px;
 }
 
 
 #acelerador{
     position: absolute;
-    top:450px;
-    left: 430px;
+    top:280px;
+    left: 220px;
 }
-      
       
 
 
-#mano{
-    position: absolute;
-    top:520px;
-    left:630px;
-    width: 45px;
-    height: 50px;
-    border-radius: 20px;
-    background-color: #145c6e9d;
-    border:none;
-    color: #fff
-}
 .modal{
     position: relative;
-    top: 250px;
+    background-color: #3e8e41;
     color: aqua;
-    left: 580px;
+    left: 690px;
 }
 
 
@@ -81,7 +72,7 @@
 }
 
 div .btn{
-    background: rgba(240, 4, 4, 0.795);
+    background: rgb(240, 4, 4);
     color: #f2f2f2;
     border-radius: 50%;
     height:50px;
@@ -91,15 +82,15 @@ div .btn{
 }
 
 div .control{
-    background: rgba(6, 235, 25, 0.6);
+    background: rgb(6, 235, 25);
 }
 #dirIzquierda{
     position: relative;
-    top:210px;
-    left: 235px;
+    top:125px;
+    left: 2px;
 }
 #dirDerecha{
     position: relative;
-    top: 210px;
-    left: 375px;
+    top: 125px;
+    left: 115px;
 }
