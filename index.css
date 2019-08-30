@@ -72,9 +72,9 @@
 }
 
 div .btn{
-    background: rgb(240, 4, 4);
+    background: rgba(116, 109, 109, 0.603);
     color: #f2f2f2;
-    border-radius: 50%;
+    border-radius: 20%;
     height:50px;
     width: 50px;
     font-size: 15px;
