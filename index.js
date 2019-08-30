@@ -59,6 +59,7 @@ setTimeout(function(){
 if(clutch=1){
 document.getElementById("clutch").classList.add("control");
 console.log("Se ha activado el clutch");
+
 } 
 },6000); 
 freno=1;
@@ -76,8 +77,11 @@ console.log("se soltó freno de piso"); },9000)
 acelerador=1;
 clutch=0;
 setTimeout(function(){
-document.getElementById("acelerador").classList.add("control");
-console.log("El vehículo arrancó"); },10000)
+    document.getElementById("clutch").classList.remove("control");
+    console.log("se suelta el clutch y se empieza a acelerar");
+    document.getElementById("acelerador").classList.add("control");
+    console.log("El vehículo arrancó");
+ },10000)
 
 setTimeout("setInterval('aceleracion()',1000)",10500);
 tiempoFrenado[0]=velocidadPromedio/paradas[0]
