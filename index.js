@@ -36,18 +36,21 @@ console.log("Seleccione un destino")
 
 
 function destino() {
-distancia = parseFloat(Math.random() * 10 + 1).toFixed(2)*1;
-setTimeout(function(){console.log("Distancia a recorrer: " + distancia + " Km");},2000)
-numParadas = parseInt(Math.random() * 3 + 1);
-tiempos = [];
-setTimeout(function(){console.log("numero de paradas: " + numParadas);},3000)
-for (let i = 0; i < numParadas; i++) {
-tiempos.push(parseInt(Math.random() * 5 + 1));
-kmPorParada = parseFloat((distancia * (i + 1)) / (numParadas + 1)).toFixed(2)*2;
-setTimeout(function(){console.log("el tiempo estimado para la parada " +(i + 1) + " en el Km: " 
-          + kmPorParada + " es " +tiempos[i] +" minutos");},4000)
-}
-arranque();
+    distancia = parseFloat(Math.random() * 10 + 1).toFixed(2)*1;
+    console.log("Distancia: " + distancia + " Km");
+    numParadas = parseInt(Math.random() * 3 + 1);
+    tiempos = [];
+    
+    console.log("numero de paradas: " + numParadas);
+    for (let i = 0; i < numParadas; i++) {
+      tiempos.push(parseInt(Math.random() * 5 + 1));
+      var kmPorParada = parseFloat((distancia * (i + 1)) / (numParadas + 1)).toFixed(2);
+      paradas.push(kmPorParada)*1
+      console.log("el tiempo estimado para la parada " +(i + 1) + " en el Km: " 
+                  + kmPorParada + " es " +tiempos[i] +" minutos");
+    }
+  
+    arranque();
 }
 
 function arranque(){
