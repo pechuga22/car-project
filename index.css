@@ -94,3 +94,7 @@ div .control{
     top: 125px;
     left: 115px;
 }
+
+.header{
+    background-color: red !important
+}
