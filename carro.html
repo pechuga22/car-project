@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+  <div class="car">
+        <div class="modal">
+                <button onclick="document.getElementById('id01').style.display='block'" class="w3-button ">Selecciona tu destino</button>
+              
+                <div id="id01" class="w3-modal">
+                  <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <header class="w3-container w3-teal"> 
+                      <span onclick="document.getElementById('id01').style.display='none'" 
+                      class="w3-button w3-display-topright">&times;</span>
+                      <h2>A donde quieres ir?</h2>
+                    </header>
+                    <div class="w3-container">
+                            <button id="casa">Casa</button>
+                            <button id="trabajo">Trabajo</button>
+                    </div>
+                  </div>
+                </div>
+           </div>
+           
+           <div class="volante">
+            <button  class="btn btn-left" id="dirIzquierda">Left</button>
+            <button  class="btn btn-right" id="dirDerecha">Right</button>
+           </div>
+                
+           <div class="controles">
+            <button class="btn btn-clutch" id="clutch">Cl</button>
+            <button class="btn btn-freno" id="freno">Fr</button>
+            <button class="btn btn-acelerador" id="acelerador">Ac</button>            
+        </div>
+
+        <button id="interruptor">On</button>
+        <button id="mano">Frm</button>
+  </div>
+       
+    <script src="index.js"></script>
+    
+     
+</body>
+</html>
