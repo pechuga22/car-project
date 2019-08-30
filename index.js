@@ -1,19 +1,22 @@
-  var encendido = 0,
-      clutch = 0,
-      frenos = 0,
-      mano = 1,
-      acelerador = 0,
-      cambio = 0,
-      distancia=0,
-      numParadas=0,
-      dirDer=0,
-      dirIzq=0,
-      tiempos=[],
-      tiempoAcc=0,
-      tiempoTotal=0,
-      tiempoViaje=0,
-      velocidadPromedio=70;
-      kmPorParada=0;
+var encendido = 0,
+  clutch = 0,
+  frenos = 0,
+  mano = 1,
+  acelerador = 0,
+  cambio = 0,
+  distancia=0,
+  numParadas=0,
+  dirDer=0,
+  dirIzq=0,
+  tiempos=[],
+  tiempoAcc=0,
+  tiempoTotal=0,
+  tiempoViaje=0,
+  velocidadPromedio=70,
+  tiempoFrenado=[],
+  paradas= [];
+  var horas=0;
+  var minutos=0;
 
 function verificarEncendido() {
   
@@ -27,29 +30,33 @@ function verificarEncendido() {
 function encender() {
   encendido = 1;
   console.log("El vehiculo se encendió");
-
+  console.log("Seleccione un destino");
 }
-
-
 function destino() {
   distancia = parseFloat(Math.random() * 10 + 1).toFixed(2)*1;
-  setTimeout(function(){console.log("Distancia a recorrer: " + distancia + " Km");},2000)
+  setTimeout(function(){console.log("Distancia: " + distancia + " Km");},2000)
   numParadas = parseInt(Math.random() * 3 + 1);
   tiempos = [];
-  setTimeout(function(){console.log("numero de paradas: " + numParadas);},3000)
+  
+  console.log("numero de paradas: " + numParadas);
   for (let i = 0; i < numParadas; i++) {
-     tiempos.push(parseInt(Math.random() * 5 + 1));
-     kmPorParada = parseFloat((distancia * (i + 1)) / (numParadas + 1)).toFixed(2)*2;
-    setTimeout(function(){console.log("el tiempo estimado para la parada " +(i + 1) + " en el Km: " 
-                + kmPorParada + " es " +tiempos[i] +" minutos");},4000)
+    tiempos.push(parseInt(Math.random() * 5 + 1));
+    var kmPorParada = parseFloat((distancia * (i + 1)) / (numParadas + 1)).toFixed(2);
+    paradas.push(kmPorParada)*1
+    console.log("el tiempo estimado para la parada " +(i + 1) + " en el Km: " 
+                + kmPorParada + " es " +tiempos[i] +" minutos");
   }
+
   arranque();
 }
 
+
+
 function arranque(){
+  clutch=1;
   setTimeout(function(){ console.log("El Auto esta listo para arrancar");},5000)
   setTimeout(function(){
-    if(clutch==1){
+    if(clutch=1){
       document.getElementById("clutch").classList.add("control");
       console.log("Se ha activado el clutch");
     } 
@@ -71,18 +78,24 @@ function arranque(){
   setTimeout(function(){
     document.getElementById("acelerador").classList.add("control");
     console.log("El vehículo arrancó"); },10000)
-  aceleracion();
+    
+    aceleracion();
+    llegada();
+    velocidad();
+    desaceleracion();
+    apagar();
 }
 
 function aceleracion(){
   clutch=1;
   acelerar=0;
-    if(cambio <6){
-      cambio++; 
-      setTimeout(function(){ console.log("El vehiculo esta en " + cambio + " cambio");},12000)
-    }else{
-      clearInterval();
-    }
+  if(cambio <6){
+    cambio++; 
+    console.log("el cambio es "+cambio)
+  }else{
+    clearInterval();
+  }
+  
 }
 
         const activar = (evento) => {
@@ -111,11 +124,7 @@ function aceleracion(){
       };
         
           document.onkeyup = function(e) {desactivar(e)};     
- //----------------------------------------------
-        function desactivarClutch() {
-            
-      };
-  //---------------------------------------------    
+   
 function llegada(){
   console.log("El vehiculo esta frenando")
   if(cambio>=0 && cambio<=6){
@@ -131,7 +140,6 @@ function llegada(){
   console.log("el carro se apagó");
 
 }
-
 function velocidad(){
 
   for(let i=0; i<tiempos.length; i++){
@@ -151,10 +159,8 @@ function velocidad(){
   
   tiempoAcc=0;
 }
-
 function conversor (tiempo){
-  let horas=0;
-  let minutos=0;
+  
 
   if(tiempo>60){
     horas= Math.floor(tiempo/60);
@@ -165,6 +171,30 @@ function conversor (tiempo){
   return contador;
   
 }
+function desaceleracion(){
+  clutch=1;
+  acelerar=0;
+
+  //tiempoFrenado[0]=velocidadPromedio/paradas[0]
+  if(cambio<6 && cambio>1){
+    cambio--; 
+    console.log("el cambio es "+cambio)
+    console.log("está frenando")
+  }else{
+    clearInterval();
+  }
+}
+
+function apagar(){
+
+  cambio=0;
+  mano=1;
+  acelerador=0;
+  freno=0;
+  console.log("el carro se apagó");
+
+}
+
 interruptor.addEventListener("click", function() {
   verificarEncendido();
 });
